@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/icon-font.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+    <title>Natours | Exciting tours for adventurous people</title>
+</head>
+<body>
+    <section class="section-signup">
+        <div class="row">
+            <div class="signup u-center-text">
+                <div class="signup__form u-center-text">
+
+                    <form action="Registration" class="form" method="POST">
+                        <div class="u-margin-bottom-medium">
+                            <h2 class="heading-secondary-2 u-center-text">
+                               Create your account!</h2>
+                        </div>
+                    
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Full Name" id="uname" name="uname" required>
+                            <label for="uname" class="form__label">User Name</label>
+                        </div>
+                    
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder="Email Address" id="uemail" name="uemail" required>
+                            <label for="uemail" class="form__label">Email Address</label>
+                            </div>
+                    
+                            <div class="form__group u-margin-bottom-medium">
+                            <div class="form__group">
+                                <input type="password" class="form__input" placeholder="Password" id="upass" name="upass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                <label for="upass" class="form__label">Password</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="password" class="form__input" placeholder="Confirm Password" id="cpassword" name="cpassword" required>
+                                <label for="cpassword" class="form__label"> Confirm Password</label>
+                            </div>
+                            </div>
+                    
+                            <div class="form__group">
+                                <button class="btn btn--green">SignUp &rarr;</button>
+                            </div>
+                    
+                        
+                    </form> 
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

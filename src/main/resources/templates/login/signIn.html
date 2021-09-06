@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/icon-font.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+    <title>Natours | Exciting tours for adventurous people</title>
+</head>
+<body>
+    <section class="section-signup">
+        <div class="row">
+            <div class="signup u-center-text">
+                <div class="signup__form u-center-text">
+
+                    <form action="signIn" class="form" method="POST">
+                        <div class="u-margin-bottom-medium">
+                            <h2 class="heading-secondary-2">
+                               LOG IN INTO YOUR ACCOUNT</h2>
+                               <h3 th:inline="text">[[${msg}]]</h3>
+                        </div>
+                    
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder="Email Address" id="uemail" name="email" required>
+                            <label for="uemail" class="form__label">Email Address</label>
+                            </div>
+                    
+                            <div class="form__group u-margin-bottom-medium">
+                            <div class="form__group">
+                                <input type="password" class="form__input" placeholder="Password" id="upass" name="pass" required>
+                                <label for="upass" class="form__label">Password</label>
+                            </div>
+        
+                            </div>
+                    
+                            <div class="form__group">
+                                <input type="submit" value="login &rarr;" class="btn btn--green">
+                               
+                            </div>
+                    
+                        
+                    </form> 
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/icon-font.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <title>Natours | Exciting tours for adventurous people</title>
+</head>
+<body>
+    <section class="section-exploreTours">
+    <div class="u-center-text u-margin-bottom-big">
+        <h2 class="heading-secondary">
+            tour book</h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-lg-5 col-md-5  col-sm-5 ">
+            <img src="../static/images/nat-1.jpg" th:src="@{img/nat-1.jpg}" height="350" width="350" alt="photo 1" class="story__img">
+        </div>
+        
+        <div class="col-lg-6 col-md-6  col-sm-6 ">
+                <form method="POST" action="conformBooking" modelAttribute="book">
+                    <div th:each="tourItem : ${tour}">
+                        <h3 class="heading-secondary" th:inline="text">[[${tourItem.name}]]</h3><br><br>
+                        <span class="heading-tertiary" th:inline="text">tour date: [[${#dates.format(tourItem.date, 'dd-MMM-yyyy')}]]</span><br><br>
+                       <h3 class="heading-tertiary">tour summary:</h3> 
+                       <span  class="paragraph" th:inline="text"> [[${tourItem.summary}]] </span><br><br>
+                        
+                        <input type="hidden" th:value="${tourItem.id}" name="tid">
+                        <input type="hidden" th:value="${tourItem.id}" name="uid">
+                        <input type="hidden" th:value="${tourItem.price}" name="price">
+                        <input type="hidden" th:value="${#dates.format(tourItem.date, 'dd-MMM-yyyy')}" name="create_at">
+                       
+                        <div class="text-center ">
+                        <input class="btn btn--green " type="submit" value="BOOK">
+                        </div>
+                </form>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="u-center-text u-margin-bottom-big">
+                    <h2 class="heading-secondary">
+                        Reviews</h2>
+                </div>
+                <form action="review" class="form" method="POST" modelAttribute="review">
+                    <div th:each="tourItem : ${tour}">
+                
+                    <div class="form__group">
+                    <input type="text" class="form__input"  name="slug" placeholder="Title" style="background-color:#eee">
+                    <label for="slug" class="form__label">Title</label>
+                    </div>
+                <textarea id="review" class="form__input u-margin-bottom-big" style="background-color:#eee" name="review_text" rows="5" cols="50"></textarea>
+                
+                <input type="hidden" th:value="${tourItem.id}" name="tourid">
+                <input type="hidden" th:value="${tourItem.id}" name="userid">
+                <input type="hidden" id="date" value="" name="create_at">
+                <div class="form__group text-center u-margin-bottom-big">
+                    <button class="btn btn--green">submit&rarr;</button>
+                </div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+</section>
+<script>
+    var d = new Date();
+    document.getElementById("date").value = d;
+</script> 
+</body>
+
+</html>

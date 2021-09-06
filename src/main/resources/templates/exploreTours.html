@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/icon-font.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+    <title>Natours | Exciting tours for adventurous people</title>
+</head>
+<body>
+<section class="section-exploreTours">
+    <div class="u-center-text u-margin-bottom-big">
+        <h2 class="heading-secondary">
+            Most popular tours</h2>
+    </div>
+    <div class="row">
+        <div class="col-1-of-4" th:each="tours : ${allTours}">
+            <div class="explorecard" >
+                <div class="explorecard__side explorecard__side--front">
+
+                    <div class="explorecard__picture explorecard__picture--1">&nbsp;</div>
+                    <h4 class="explorecard__heading">
+                        <span class="explorecard__heading-span explorecard__heading-span--1" th:inline="text">[[${tours.name}]]</span>
+                    </h4>
+                    <div class="explorecard__details">
+                        <ul>
+                            <li th:inline="text">[[${tours.duration}]] days tour</li>
+                            <li th:inline="text">Up to[[${tours.people_limit}]] people</li>
+                            <li th:inline="text"> [[${tours.guides}]] tour guides</li>
+                            <li th:inline="text">[[${tours.perks}]]</li>
+                            <li th:inline="text">Difficulty: [[${tours.difficulty}]]</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="explorecard__side explorecard__side--back explorecard__side--back-1">
+                    <div class="explorecard__cta">
+                        <div class="explorecard__price-box">
+                            <p class="explorecard__price-only">only</p>
+                            <p class="explorecard__price-value" th:inline="text">[[${tours.price}]]</p>
+                        </div>
+                        <a href="popup" class="btn btn--white">Book now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
